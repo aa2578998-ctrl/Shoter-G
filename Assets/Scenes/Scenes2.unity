@@ -129,7 +129,6 @@ GameObject:
   m_Component:
   - component: {fileID: 62158122}
   - component: {fileID: 62158123}
-  - component: {fileID: 62158124}
   m_Layer: 5
   m_Name: Slider_Boss_HP
   m_TagString: Untagged
@@ -209,20 +208,6 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &62158124
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 62158121}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18c7fc1a818b54940a93c141256fa5bb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::HP_Slider_Player
-  currentHP: 100
-  slider: {fileID: 62158123}
 --- !u!1 &568392639
 GameObject:
   m_ObjectHideFlags: 0
@@ -636,6 +621,7 @@ GameObject:
   - component: {fileID: 985218899}
   - component: {fileID: 985218901}
   - component: {fileID: 985218900}
+  - component: {fileID: 985218902}
   m_Layer: 5
   m_Name: Fill
   m_TagString: Untagged
@@ -700,6 +686,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 985218898}
   m_CullTransparentMesh: 1
+--- !u!114 &985218902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 985218898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18c7fc1a818b54940a93c141256fa5bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HP_Slider_Boss
+  currentHP: 1
+  Sliders: {fileID: 62158122}
+  ScalesSlider: 1.1
+  ScalesSliderBuldge: 1
+  slider: {fileID: 62158123}
+  Times: 0
 --- !u!1 &1052557770
 GameObject:
   m_ObjectHideFlags: 0
@@ -1686,7 +1690,6 @@ GameObject:
   - component: {fileID: 1794739238}
   - component: {fileID: 1794739242}
   - component: {fileID: 1794739243}
-  - component: {fileID: 1794739244}
   m_Layer: 5
   m_Name: Interface
   m_TagString: Untagged
@@ -1809,21 +1812,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TMP_Scorekills_Enemy
   text: {fileID: 2131051059}
   currentScore: 0
---- !u!114 &1794739244
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1794739237}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e45ec47f4bee4474a8cae1df6b709777, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TMP_HP_Boss
-  currentHPBoss: 0
-  HPBoss: 0
-  sliderHP: {fileID: 0}
 --- !u!1 &2131051056
 GameObject:
   m_ObjectHideFlags: 0

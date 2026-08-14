@@ -2,14 +2,15 @@ using UnityEngine;
 
 public class Destroy_Projectile_Player : MonoBehaviour
 {
-    public HP_Slider_Player HPB;
+    public HP_Slider_Boss HPB;
     public float currentHP;
-    private void Start()
+
+    void Start()
     {
-        HPB = GameObject.FindAnyObjectByType<HP_Slider_Player>();
+        HPB = FindAnyObjectByType<HP_Slider_Boss>();
     }
 
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("EnemyS1"))
         {
@@ -18,7 +19,7 @@ public class Destroy_Projectile_Player : MonoBehaviour
         if (other.gameObject.CompareTag("Boss_1"))
         {
             Destroy(gameObject);
-            HPB.SetHPslider(currentHP);
+            HPB.currentHP -= currentHP;
         }
     }
 }
