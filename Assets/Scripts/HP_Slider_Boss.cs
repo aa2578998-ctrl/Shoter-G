@@ -7,8 +7,8 @@ public class HP_Slider_Boss : MonoBehaviour
     public float currentHP = 1f;
     private RectTransform rectTransform;
     public Transform Sliders;
-    public float ScalesSlider;
-    public float ScalesSliderBuldge;
+    public Vector3 ScalesSlider = new Vector3(0f, 0f, 0f);
+    public Vector3 ScalesSliderBuldge = new Vector3(0f, 0f, 0f);
     public Slider slider;
 
     public bool Times = false;
@@ -27,14 +27,14 @@ public class HP_Slider_Boss : MonoBehaviour
     {
         HPboss = Mathf.Clamp01(HPboss);
         rectTransform.localScale = new Vector3(HPboss, rectTransform.localScale.y, rectTransform.localScale.z);
-        Sliders.localScale = new Vector3(ScalesSlider, ScalesSlider, ScalesSlider);
-        Times = true;
+
+        Sliders.localScale = ScalesSlider;
         if (Times)
         {
             timeCurrent += Time.deltaTime;
-            if (timeCurrent >= 0.5f)
+            if (timeCurrent >= 1.5f)
             {
-                Sliders.localScale = new Vector3(ScalesSliderBuldge, ScalesSliderBuldge, ScalesSliderBuldge);
+                Sliders.localScale = ScalesSliderBuldge;
                 Times = false;
             }
         }

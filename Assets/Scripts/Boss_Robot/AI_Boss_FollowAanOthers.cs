@@ -4,6 +4,7 @@ public class AI_Boss_FollowAanOthers : MonoBehaviour
 {
     // Ссылка на другой скрипт
     public Rotate_Sphere_Boss bustControllRotate;
+    public HP_Slider_Boss hP_Slider_Boss;
     // Сам ИИ
     public NavMeshAgent Agent;
     // Скорость передвижения
@@ -22,6 +23,12 @@ public class AI_Boss_FollowAanOthers : MonoBehaviour
     public Vector3 offsetRotation = new Vector3(0f, 0f, 0f);
     // Кого будет преследовать
     public Transform ObjectTrigger;
+
+    public Transform GameObjectTeleport;
+
+    public float DistanceStopFall;
+
+    public float DamageTeleport;
     void Start()
     {
         // Ищет компонент для ИИ
@@ -34,9 +41,17 @@ public class AI_Boss_FollowAanOthers : MonoBehaviour
         ObjectTrigger = GameObject.FindWithTag("Player").transform;
         // Ищет игровой объект с таким типом 
         bustControllRotate = GameObject.FindAnyObjectByType<Rotate_Sphere_Boss>();
+
+        hP_Slider_Boss = GameObject.FindAnyObjectByType<HP_Slider_Boss>();
     }
-  void LateUpdate()
+
+    void LateUpdate()
     {
+        if (transform.position.y <= DistanceStopFall)
+        {
+            transform.position = GameObjectTeleport.position;
+            hP_Slider_Boss.currentHP -= DamageTeleport;
+        }
         if (ObjectTrigger != null) // Если игрок был найден
         {
             // Радиус для увеличения скорости = работа пространством . дистанция (изменение позиции, позиция игрока)
@@ -87,6 +102,7 @@ public class AI_Boss_FollowAanOthers : MonoBehaviour
             }
         }
     }
+
     void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.gray; // Цвет луча = цвет . серый

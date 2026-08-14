@@ -145,7 +145,7 @@ RectTransform:
   m_GameObject: {fileID: 62158121}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 4.4626, y: 2.05, z: 1}
+  m_LocalScale: {x: 4.5, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1238438523}
@@ -700,8 +700,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HP_Slider_Boss
   currentHP: 1
   Sliders: {fileID: 62158122}
-  ScalesSlider: 1.1
-  ScalesSliderBuldge: 1
+  ScalesSlider: {x: 4.5, y: 2, z: 1}
+  ScalesSliderBuldge: {x: 4.6, y: 2.2, z: 1}
   slider: {fileID: 62158123}
   Times: 0
 --- !u!1 &1052557770
@@ -1269,6 +1269,46 @@ MonoBehaviour:
       m_Action: Action
       m_Flags: 8
     m_Flags: 0
+--- !u!1 &1361881427
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1361881429}
+  - component: {fileID: 1361881428}
+  m_Layer: 0
+  m_Name: Teleport_Boss
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!33 &1361881428
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1361881427}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &1361881429
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1361881427}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.06, y: 5.1, z: -5.18}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1416344633 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8abde258415a47448866a73f283b1e83, type: 3}
@@ -2088,9 +2128,17 @@ PrefabInstance:
       propertyPath: Area
       value: 
       objectReference: {fileID: 969529388}
+    - target: {fileID: 1257922481496098197, guid: 09297588845703148a10880ed0741bb9, type: 3}
+      propertyPath: DistanceStopFall
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1257922481496098197, guid: 09297588845703148a10880ed0741bb9, type: 3}
+      propertyPath: GameObjectTeleport
+      value: 
+      objectReference: {fileID: 1361881429}
     - target: {fileID: 1686137566484716448, guid: 09297588845703148a10880ed0741bb9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 18.4
+      value: 76.57
       objectReference: {fileID: 0}
     - target: {fileID: 1686137566484716448, guid: 09297588845703148a10880ed0741bb9, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2136,6 +2184,14 @@ PrefabInstance:
       propertyPath: Player
       value: 
       objectReference: {fileID: 1416344633}
+    - target: {fileID: 2640102117550787436, guid: 09297588845703148a10880ed0741bb9, type: 3}
+      propertyPath: QuanityAttack1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5849766654715424609, guid: 09297588845703148a10880ed0741bb9, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8373566759778620187, guid: 09297588845703148a10880ed0741bb9, type: 3}
       propertyPath: Player
       value: 
@@ -2158,3 +2214,4 @@ SceneRoots:
   - {fileID: 6091218776639344504}
   - {fileID: 1052557773}
   - {fileID: 969529387}
+  - {fileID: 1361881429}

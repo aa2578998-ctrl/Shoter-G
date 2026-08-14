@@ -20,6 +20,7 @@ public class Destroy_Projectile_Player : MonoBehaviour
         {
             Destroy(gameObject);
             HPB.currentHP -= currentHP;
+            HPB.Times = true;
         }
     }
 }
