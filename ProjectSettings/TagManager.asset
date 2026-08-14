@@ -3,7 +3,12 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
-  tags: []
+  tags:
+  - Projectile Pl
+  - EnemyS1
+  - Parent P PI
+  - Ground
+  - Boss_1
   layers:
   - Default
   - TransparentFX
@@ -11,7 +16,7 @@ TagManager:
   - Ground
   - Water
   - UI
-  - 
+  - Player
   - 
   - 
   - 
