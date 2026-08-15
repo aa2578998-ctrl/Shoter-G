@@ -46,6 +46,7 @@ public class Attack_Boss_JumpInPlayer : MonoBehaviour
             StopShot_1.enabled = true;
             StopRotate.enabled = true;
             transform.localScale = new Vector3(1f, 1f, 1f);
+            StartCollision = false;
         }
     }
     public void LateUpdate()
@@ -53,12 +54,12 @@ public class Attack_Boss_JumpInPlayer : MonoBehaviour
         if (StopScale)
         {
             TimeForJump += Time.deltaTime;
-            transform.localScale = Vector3.Lerp(transform.lossyScale, scaleChanges, speedScale * Time.deltaTime);
+            transform.localScale = Vector3.Lerp(transform.localScale, scaleChanges, speedScale * Time.deltaTime);
         }
         if (TimeForJump >= 1.5f)
         {
             StopScale = false;
-            transform.localScale = Vector3.Lerp(transform.lossyScale, JumpScaleChanges, speedScaleJump * Time.deltaTime);
+            transform.localScale = Vector3.Lerp(transform.localScale, JumpScaleChanges, speedScaleJump * Time.deltaTime);
             GetComponent<Rigidbody>().useGravity = false;
 
             transform.Translate(Vector3.up * speedJump * Time.deltaTime);

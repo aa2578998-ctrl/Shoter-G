@@ -2,9 +2,13 @@ using UnityEngine;
 using UnityEngine.AI;
 public class AI_Boss_FollowAanOthers : MonoBehaviour
 {
+    public float Speed_Y;
+    public float Speed_Z;
+
     // Ссылка на другой скрипт
     public Rotate_Sphere_Boss bustControllRotate;
     public HP_Slider_Boss hP_Slider_Boss;
+    public Follow_Camera_Player Camera_Player;
     // Сам ИИ
     public NavMeshAgent Agent;
     // Скорость передвижения
@@ -27,8 +31,7 @@ public class AI_Boss_FollowAanOthers : MonoBehaviour
     public Transform GameObjectTeleport;
 
     public float DistanceStopFall;
-
-    public float DamageTeleport;
+    public float currentHP;
     void Start()
     {
         // Ищет компонент для ИИ
@@ -42,16 +45,30 @@ public class AI_Boss_FollowAanOthers : MonoBehaviour
         // Ищет игровой объект с таким типом 
         bustControllRotate = GameObject.FindAnyObjectByType<Rotate_Sphere_Boss>();
 
-        hP_Slider_Boss = GameObject.FindAnyObjectByType<HP_Slider_Boss>();
+        hP_Slider_Boss = FindAnyObjectByType<HP_Slider_Boss>();
+
+        Camera_Player = GameObject.FindAnyObjectByType<Follow_Camera_Player>();
     }
 
     void LateUpdate()
     {
+        if (Camera_Player.offset.y < 15f)
+        {
+            Camera_Player.offset.y += Speed_Y * Time.deltaTime;
+        }
+
+        if (Camera_Player.offset.z < 6f)
+        {
+            Camera_Player.offset.z += Speed_Z * Time.deltaTime;
+        }
+
+
         if (transform.position.y <= DistanceStopFall)
         {
+            hP_Slider_Boss.currentHP -= currentHP;
             transform.position = GameObjectTeleport.position;
-            hP_Slider_Boss.currentHP -= DamageTeleport;
         }
+
         if (ObjectTrigger != null) // Если игрок был найден
         {
             // Радиус для увеличения скорости = работа пространством . дистанция (изменение позиции, позиция игрока)
