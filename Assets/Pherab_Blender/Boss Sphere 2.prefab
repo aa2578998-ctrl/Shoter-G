@@ -100,7 +100,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 77f81a62fabacc94d8e8b8d4d17b95b9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 18.4
+      value: 25.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 77f81a62fabacc94d8e8b8d4d17b95b9, type: 3}
       propertyPath: m_LocalPosition.y
@@ -269,7 +269,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 489eaf00cb9c3994cab3969574d9156e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AI_Boss_FollowAanOthers
+  Speed_Y: 7
+  Speed_Z: 2
   bustControllRotate: {fileID: 0}
+  hP_Slider_Boss: {fileID: 0}
+  Camera_Player: {fileID: 0}
   Agent: {fileID: 0}
   speedRun: 1
   BustRun: 0
@@ -279,6 +283,9 @@ MonoBehaviour:
   DistanceBustSpeedRun: 15
   offsetRotation: {x: 0, y: 0, z: 0}
   ObjectTrigger: {fileID: 0}
+  GameObjectTeleport: {fileID: 0}
+  DistanceStopFall: -2
+  currentHP: 0.05
 --- !u!195 &5849766654715424609
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -450,9 +457,9 @@ MonoBehaviour:
   PattronsStart: 1
   currentTime: 0
   DistanceAim: 20
-  TimeMiniCD: 0.4
+  TimeMiniCD: 0.2
   currentTimeMiniCD: 0
-  PrimaryPattrons: 10
+  PrimaryPattrons: 20
   QuanityPattrons: 0
   AttackChoice: 0
 --- !u!1 &3059569416622694693 stripped
@@ -479,8 +486,8 @@ MonoBehaviour:
   SpeedRotate: 0
   AtLightningSpeed: 180
   BustSpeedRotate: 0
-  QuanityAttack1: 6
-  FiniteQuanityAttavk1: 6
+  QuanityAttack1: 0
+  FiniteQuanityAttavk1: 2
 --- !u!1 &6463924770949869358 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5285146817874269029, guid: 77f81a62fabacc94d8e8b8d4d17b95b9, type: 3}
@@ -527,9 +534,9 @@ MonoBehaviour:
   PattronsStart: 1
   currentTime: 0
   DistanceAim: 20
-  TimeMiniCD: 0.4
+  TimeMiniCD: 0.2
   currentTimeMiniCD: 0
-  PrimaryPattrons: 10
+  PrimaryPattrons: 20
   QuanityPattrons: 0
   AttackChoice: 0
 --- !u!1 &6954453493343004454 stripped

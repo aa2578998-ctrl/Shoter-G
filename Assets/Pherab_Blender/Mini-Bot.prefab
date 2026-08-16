@@ -141,6 +141,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Observation
   speedR: 10
   Player: {fileID: 0}
+  offsetRotate: {x: -90, y: 0, z: 0}
 --- !u!114 &2143268107058484355
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -153,25 +154,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f498dd616b45a8042afd25f93a985616, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Shot_MiniBot
-  MINRangeATC: 0.2
-  MAXRangeATC: 0.5
   Patron: 0
   Spatron: 0
   StartS: 1
+  Trigger: 1
+  IsActives: 0
   Player:
     serializedVersion: 2
     m_Bits: 64
+  Projectile: {fileID: 8484977481820594638, guid: 3d26501832107c0429bb2a87959df07b, type: 3}
   amountPatrons: 0
   amountSP: 10
   Stime: 6
   corrutineTime: 0
-  Projectile: {fileID: 8484977481820594638, guid: 3d26501832107c0429bb2a87959df07b, type: 3}
   attackTime: 0.2
   SattackTime: 0
   disL: 7
+  MAXRangeATC: 0.5
+  MINRangeATC: 0.2
   offs: {x: 90, y: 0, z: 0}
-  Trigger: 1
-  IsActives: 0
 --- !u!1 &6015950788796023620 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -5117700066308340382, guid: 7020d099ba55c494486ae3484adc4d94, type: 3}
@@ -283,7 +284,7 @@ CapsuleCollider:
     m_Bits: 0
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
-  m_ProvidesContacts: 0
+  m_ProvidesContacts: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.36
