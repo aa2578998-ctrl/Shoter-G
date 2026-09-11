@@ -13,7 +13,7 @@ public class TMP_HP_Player : MonoBehaviour
             HPtext = GetComponent<TextMeshProUGUI>();
         }
         currentHP = HP;
-      
+
         UpdateHPtext();
     }
     private void UpdateHPtext()
@@ -24,7 +24,7 @@ public class TMP_HP_Player : MonoBehaviour
     {
         currentHP -= damage;
         UpdateHPtext();
-        if (currentHP < 0 )
+        if (currentHP < 0)
         {
             Scene currenS = SceneManager.GetActiveScene();
             SceneManager.LoadScene(currenS.name);

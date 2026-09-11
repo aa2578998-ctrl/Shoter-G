@@ -15,6 +15,8 @@ public class Bomb_Forward_Projectile_Boss : MonoBehaviour
     public float gravityForce; // Скорость сила притяжения
     public int damage;
 
+    public Transform Boom;
+
     private void Start()
     {
         playerHP = FindAnyObjectByType<TMP_HP_Player>();
@@ -38,11 +40,12 @@ public class Bomb_Forward_Projectile_Boss : MonoBehaviour
             if (corrutineTime <= 0f) // Если время менише, равен нулю
             {
                 Destroy(gameObject); // Уничтожает объект
+                Instantiate(Boom, transform.position, Quaternion.identity);
             }
         }
         if (Trigger) // Если луч активен
         {
-        speed = 0f; // Скрость равна нулю
+            speed = 0f; // Скрость равна нулю
         }
     }
     private void OnCollisionStay(Collision other)

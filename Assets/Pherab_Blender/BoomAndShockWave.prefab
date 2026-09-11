@@ -1,0 +1,234 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1520159819160139706
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5753493996489816179}
+  m_Layer: 0
+  m_Name: BoomAndShockWave
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5753493996489816179
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1520159819160139706}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 3895434305705694100}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1341585352329492721
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 5753493996489816179}
+    m_Modifications:
+    - target: {fileID: 2634913755527523173, guid: d1162b1a45de0ca419a03c4f344e8c54, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2634913755527523173, guid: d1162b1a45de0ca419a03c4f344e8c54, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2634913755527523173, guid: d1162b1a45de0ca419a03c4f344e8c54, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2634913755527523173, guid: d1162b1a45de0ca419a03c4f344e8c54, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071067
+      objectReference: {fileID: 0}
+    - target: {fileID: 2634913755527523173, guid: d1162b1a45de0ca419a03c4f344e8c54, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 2634913755527523173, guid: d1162b1a45de0ca419a03c4f344e8c54, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2634913755527523173, guid: d1162b1a45de0ca419a03c4f344e8c54, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2634913755527523173, guid: d1162b1a45de0ca419a03c4f344e8c54, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2634913755527523173, guid: d1162b1a45de0ca419a03c4f344e8c54, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2634913755527523173, guid: d1162b1a45de0ca419a03c4f344e8c54, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3448289145337835999, guid: d1162b1a45de0ca419a03c4f344e8c54, type: 3}
+      propertyPath: m_Name
+      value: Boom_Boss_Death
+      objectReference: {fileID: 0}
+    - target: {fileID: 3448289145337835999, guid: d1162b1a45de0ca419a03c4f344e8c54, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 2634913755527523173, guid: d1162b1a45de0ca419a03c4f344e8c54, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5016734491544594930}
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3448289145337835999, guid: d1162b1a45de0ca419a03c4f344e8c54, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6412661814175252911}
+  m_SourcePrefab: {fileID: 100100000, guid: d1162b1a45de0ca419a03c4f344e8c54, type: 3}
+--- !u!4 &3895434305705694100 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2634913755527523173, guid: d1162b1a45de0ca419a03c4f344e8c54, type: 3}
+  m_PrefabInstance: {fileID: 1341585352329492721}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4414807948195596590 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3448289145337835999, guid: d1162b1a45de0ca419a03c4f344e8c54, type: 3}
+  m_PrefabInstance: {fileID: 1341585352329492721}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6412661814175252911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4414807948195596590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0dda71589d5221f4db797ca94fd16746, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Boom_Animated
+  Speed_Y: 7
+  Speed_Z: 2
+  Speed: 30
+  Timer: 0
+  TimeLimit: 1
+  scale: {x: 1, y: 1, z: 1}
+  scaleLimit: {x: 9, y: 9, z: 9}
+  Camera_Player: {fileID: 0}
+--- !u!1001 &6241952488796447203
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 3895434305705694100}
+    m_Modifications:
+    - target: {fileID: 1369335935193630737, guid: 23d992fe0995bf745a7cfae4d2cfc92b, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.99446213
+      objectReference: {fileID: 0}
+    - target: {fileID: 1369335935193630737, guid: 23d992fe0995bf745a7cfae4d2cfc92b, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.9944622
+      objectReference: {fileID: 0}
+    - target: {fileID: 1369335935193630737, guid: 23d992fe0995bf745a7cfae4d2cfc92b, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2.4247923
+      objectReference: {fileID: 0}
+    - target: {fileID: 1369335935193630737, guid: 23d992fe0995bf745a7cfae4d2cfc92b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1369335935193630737, guid: 23d992fe0995bf745a7cfae4d2cfc92b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1369335935193630737, guid: 23d992fe0995bf745a7cfae4d2cfc92b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1369335935193630737, guid: 23d992fe0995bf745a7cfae4d2cfc92b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1369335935193630737, guid: 23d992fe0995bf745a7cfae4d2cfc92b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1369335935193630737, guid: 23d992fe0995bf745a7cfae4d2cfc92b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1369335935193630737, guid: 23d992fe0995bf745a7cfae4d2cfc92b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1369335935193630737, guid: 23d992fe0995bf745a7cfae4d2cfc92b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1369335935193630737, guid: 23d992fe0995bf745a7cfae4d2cfc92b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1369335935193630737, guid: 23d992fe0995bf745a7cfae4d2cfc92b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1750505437336474283, guid: 23d992fe0995bf745a7cfae4d2cfc92b, type: 3}
+      propertyPath: m_Name
+      value: 'Shock_Wave '
+      objectReference: {fileID: 0}
+    - target: {fileID: 1750505437336474283, guid: 23d992fe0995bf745a7cfae4d2cfc92b, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1750505437336474283, guid: 23d992fe0995bf745a7cfae4d2cfc92b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 173353112395940524}
+  m_SourcePrefab: {fileID: 100100000, guid: 23d992fe0995bf745a7cfae4d2cfc92b, type: 3}
+--- !u!4 &5016734491544594930 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1369335935193630737, guid: 23d992fe0995bf745a7cfae4d2cfc92b, type: 3}
+  m_PrefabInstance: {fileID: 6241952488796447203}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5680400171666993992 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1750505437336474283, guid: 23d992fe0995bf745a7cfae4d2cfc92b, type: 3}
+  m_PrefabInstance: {fileID: 6241952488796447203}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &173353112395940524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5680400171666993992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5f13751e43dfca4db8978ea1bf5a9b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Shock_Wave_Animation_Boss
+  speed: 3
+  scale: {x: 0.01, y: 0.01, z: 0.01}
+  scaleLimit: {x: 1, y: 1, z: 1}
+  Timer: 0
+  StopTimer: 1

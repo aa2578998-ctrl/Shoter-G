@@ -38,7 +38,7 @@ public class Attack_Boss_JumpInPlayer : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Ground") && StartCollision)
         {
-            Area.HightOffset = -5f;
+            Area.HightOffset = 50f;
             TimeAttackJump = 0f;
             GetComponent<NavMeshAgent>().enabled = true;
             AIoff.enabled = true;

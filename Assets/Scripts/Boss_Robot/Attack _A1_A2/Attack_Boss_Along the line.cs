@@ -31,7 +31,8 @@ public class Attack_Boss_Alongtheline : MonoBehaviour
     void Update()
     {
         if (PreparationForAttack1) // Если запуск активен
-        { attack1 += Time.deltaTime; // Подготовка к атакке, увеличивает плавно
+        {
+            attack1 += Time.deltaTime; // Подготовка к атакке, увеличивает плавно
             if (Subject != null) // Если игрок найден
             {
                 Attack_1_Area.GetComponent<MeshRenderer>().enabled = false;
@@ -56,11 +57,11 @@ public class Attack_Boss_Alongtheline : MonoBehaviour
             Attack_1_Area.GetComponent<MeshRenderer>().enabled = true;
 
             Quaternion offsetRotate = Quaternion.Euler(offset); // Смещение градуса
-                Quaternion LookSubject = Quaternion.LookRotation(PositionReatreat); // На кого смотрит
+            Quaternion LookSubject = Quaternion.LookRotation(PositionReatreat); // На кого смотрит
             LookSubject.x = 0f;
             LookSubject.z = 0f;
-                transform.rotation = Quaternion.Slerp(transform.rotation, LookSubject * offsetRotate, speedRotation * Time.deltaTime); // Изменение вращения = работа с поворотами (изменение поворота, смотрит на игрока * на смещение, скорость поворота * на плавное изменение)
-                attack1Active += Time.deltaTime; // Сама атакка увеличевается плавно
+            transform.rotation = Quaternion.Slerp(transform.rotation, LookSubject * offsetRotate, speedRotation * Time.deltaTime); // Изменение вращения = работа с поворотами (изменение поворота, смотрит на игрока * на смещение, скорость поворота * на плавное изменение)
+            attack1Active += Time.deltaTime; // Сама атакка увеличевается плавно
         }
         if (attack1Active >= 2f) // Если атакка >= двум
         {
@@ -81,15 +82,16 @@ public class Attack_Boss_Alongtheline : MonoBehaviour
     }
     public void Attack1() //
     {
-            if (indent != null) //
-            {
+        if (indent != null) //
+        {
             distance = 0f;
             Agent.enabled = true;
             Agent.speed = speedReatreat; //
             Agent.angularSpeed = speedRotation; //
             indent.enabled = false; //
+            indent.Agent.ResetPath();
             PreparationForAttack1 = true; //
 
-            }
+        }
     }
 }

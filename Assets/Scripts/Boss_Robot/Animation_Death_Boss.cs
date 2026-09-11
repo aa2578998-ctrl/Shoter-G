@@ -1,33 +1,42 @@
+using NUnit.Framework.Constraints;
 using UnityEngine;
-using UnityEngine.AI;
 
 public class Animation_Death_Boss : MonoBehaviour
 {
-    public HP_Slider_Boss HPBoss;
-    public AI_Boss_FollowAanOthers Off;
-    public NavMeshAgent Agent;
+    public GameObject Boom;
+    public AI_Boss_FollowAanOthers AI;
+    public Attack_Boss_Alongtheline AIattack1;
+    public Attack_Boss_JumpInPlayer AIattack2;
+    public Rotate_Sphere_Boss Rotate_sphere_Boss;
+    public float Timer;
 
-    public float speedMove;
-    public float speedRotate;
-
-    public Transform player;
-
-    public Vector3 offsetRotation = new Vector3(0f, 0f, 0f);
     void Start()
     {
-        HPBoss = GameObject.FindAnyObjectByType<HP_Slider_Boss>();
-        Off = GameObject.FindAnyObjectByType<AI_Boss_FollowAanOthers>();
-        Agent = GetComponent<NavMeshAgent>();
+        AI = GameObject.FindAnyObjectByType<AI_Boss_FollowAanOthers>();
+        AIattack1 = GameObject.FindAnyObjectByType<Attack_Boss_Alongtheline>();
+        AIattack2 = GameObject.FindAnyObjectByType<Attack_Boss_JumpInPlayer>();
+        Rotate_sphere_Boss = GameObject.FindAnyObjectByType<Rotate_Sphere_Boss>();
 
-        Agent.speed = speedMove;
-        Agent.angularSpeed = speedRotate;
     }
+    public void ActivatedDeath()
+    {
+        AI.enabled = false;
+        AIattack1.enabled = false;
+        AIattack2.enabled = false;
+        Rotate_sphere_Boss.enabled = false;
 
+
+    }
     void LateUpdate()
     {
-        if (player != null)
+        if (!AIattack1.enabled)
+            Timer += Time.deltaTime;
+        if (Timer >= 1)
         {
+            Instantiate(Boom, transform.position, Quaternion.identity);
 
+            Destroy(gameObject);
+            Timer = 0;
         }
     }
 }

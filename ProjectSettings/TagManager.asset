@@ -9,6 +9,7 @@ TagManager:
   - Parent P PI
   - Ground
   - Boss_1
+  - Boom_Projectile_Boss
   layers:
   - Default
   - TransparentFX

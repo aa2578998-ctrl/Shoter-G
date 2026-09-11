@@ -5,6 +5,7 @@ public class AI_Boss_FollowAanOthers : MonoBehaviour
     public float Speed_Y;
     public float Speed_Z;
 
+    public Slider_Movement_Spawn SpawnLiner;
     // Ссылка на другой скрипт
     public Rotate_Sphere_Boss bustControllRotate;
     public HP_Slider_Boss hP_Slider_Boss;
@@ -34,6 +35,7 @@ public class AI_Boss_FollowAanOthers : MonoBehaviour
     public float currentHP;
     void Start()
     {
+        SpawnLiner.SliderOne = GameObject.FindWithTag("Boss_1").transform;
         // Ищет компонент для ИИ
         Agent = GetComponent<NavMeshAgent>();
         // Назначение скорости передвижения
@@ -46,12 +48,14 @@ public class AI_Boss_FollowAanOthers : MonoBehaviour
         bustControllRotate = GameObject.FindAnyObjectByType<Rotate_Sphere_Boss>();
 
         hP_Slider_Boss = FindAnyObjectByType<HP_Slider_Boss>();
+        hP_Slider_Boss.currentHP = 1;
 
         Camera_Player = GameObject.FindAnyObjectByType<Follow_Camera_Player>();
     }
 
     void LateUpdate()
     {
+        // Отдаление камеры по y и z
         if (Camera_Player.offset.y < 15f)
         {
             Camera_Player.offset.y += Speed_Y * Time.deltaTime;
@@ -62,7 +66,7 @@ public class AI_Boss_FollowAanOthers : MonoBehaviour
             Camera_Player.offset.z += Speed_Z * Time.deltaTime;
         }
 
-
+        // Телепортация босса с пропости
         if (transform.position.y <= DistanceStopFall)
         {
             hP_Slider_Boss.currentHP -= currentHP;

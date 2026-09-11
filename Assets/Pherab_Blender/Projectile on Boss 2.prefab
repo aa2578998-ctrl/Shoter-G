@@ -130,6 +130,7 @@ MonoBehaviour:
     m_Bits: 64
   gravityForce: 1
   damage: 1
+  Boom: {fileID: 9046644577232580331, guid: 8c593eb8bcac7e141892b41ea9890358, type: 3}
 --- !u!135 &3525619045191540064
 SphereCollider:
   m_ObjectHideFlags: 0
