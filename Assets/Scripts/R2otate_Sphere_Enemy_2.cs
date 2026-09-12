@@ -1,16 +1,14 @@
 using UnityEngine;
 
+
 public class R2otate_Sphere_Enemy_2 : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public Shipe_ball_enemy shipe_Ball_Enemy;
+    public float speedRotate;
 
-    // Update is called once per frame
-    void Update()
+
+    void LateUpdate()
     {
-        
+        transform.Rotate(Vector3.forward * speedRotate * Time.deltaTime);
     }
 }

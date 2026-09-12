@@ -12,7 +12,7 @@ public class Destroy_Projectile_Player : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("EnemyS1"))
+        if (other.gameObject.CompareTag("EnemyS1") || other.gameObject.CompareTag("EnemyS2"))
         {
             Destroy(gameObject);
         }

@@ -10,6 +10,7 @@ TagManager:
   - Ground
   - Boss_1
   - Boom_Projectile_Boss
+  - EnemyS2
   layers:
   - Default
   - TransparentFX

@@ -6,7 +6,12 @@ public class Spawn_EnemyAndBoss_Follow_Player : MonoBehaviour
     // Максимальная точка появления
     public float maxPRadius;
     // Кого создает
-    public GameObject enemyANDboss;
+    public GameObject enemyAND1;
+    public GameObject enemyAND2;
+    public GameObject boss3;
+
+    public GameObject ObjectC;
+
     // Вокруг кого радиус появления
     public Transform playerPC;
     // Счетчик на количество врагов
@@ -17,7 +22,7 @@ public class Spawn_EnemyAndBoss_Follow_Player : MonoBehaviour
     public float currentTime;
     // Система контроля работа способности
     public bool activated;
-   void Start()
+    void Start()
     {// Изменяющийся таймер равен начальным показателям
         currentTime = Timer;
     }
@@ -39,7 +44,7 @@ public class Spawn_EnemyAndBoss_Follow_Player : MonoBehaviour
             currentTime = Timer;
         }
     }
-    
+
     void SpawnEnemyAndBoss()
     {
         // Задается значение для работы по "x" и "z", и разброс значений от 0 до числа PI умноженная надвое, (без сокращений)
@@ -49,12 +54,19 @@ public class Spawn_EnemyAndBoss_Follow_Player : MonoBehaviour
         // Прибавление к счетчику врагов на единицу  
         amountEAB += 1f;
         // Назначение названия float для работы в пространстве "x" с Cosinus используя: разброс от 0 до PI * 2 и умножая на разброс от первого назначенного до второго, (без сокращений)
-        float x = Mathf.Cos (angle) * distance;
+        float x = Mathf.Cos(angle) * distance;
         // Назначение названия float для работы в пространстве "z" с Sinus используя: разброс от 0 до PI * 2 и умножая на разброс от первого назначенного до второго, (без сокращений)
-        float z = Mathf.Sin (angle) * distance;
+        float z = Mathf.Sin(angle) * distance;
         // Задается название для появления и равна, позиции где должен появится + смещение по x = Cosinus , y = 0, z = Sinus
         Vector3 spawnPosition = playerPC.position + new Vector3(x, 0f, z);
-        // Создает самого врага, для позиции использует "spawnPosition" = место где должен появится,"Quaternion.identity" = значение для стандартного поворота, без поворота
-        Instantiate(enemyANDboss, spawnPosition, Quaternion.identity);
+
+        GameObject[] Randoms = { enemyAND1, enemyAND2 };
+
+        int IndexR = Random.Range(0, 2);
+
+        GameObject RandomEnemy = Randoms[IndexR];
+        ObjectC = RandomEnemy;
+
+        Instantiate(ObjectC, spawnPosition, Quaternion.identity);
     }
 }
