@@ -1,8 +1,11 @@
+using Unity.Microsoft.GDK;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class Shipe_ball_enemy : MonoBehaviour
 {
+    public GameObject BoomObject;
+
     public NavMeshAgent Agent;
     public float speedForward = 2;
     public float speedRotate = 2;
@@ -11,6 +14,8 @@ public class Shipe_ball_enemy : MonoBehaviour
     public float LimiterSpeedingF;
 
     public int damage;
+
+    public float DeathRound;
 
     public bool SetActives = true;
 
@@ -24,18 +29,25 @@ public class Shipe_ball_enemy : MonoBehaviour
     public Spawn_EnemyAndBoss_Follow_Player PointsSpawn;
     public TMP_HP_Player HP_Player;
 
+    public TMP_HP_Player tMP_HP_Player;
+
+    public TMP_Scorekills_Enemy Scorekills_Enemy;
     [Header("Таймер для вкл/выкл ИИ")]
     public float times;
     public float StopTimes;
     public float TimeDeath;
     public bool DeathTimes = false;
     public bool SetNotDeaht = true;
+
+
     void Start()
     {
-        rotateSTOP = GameObject.FindAnyObjectByType<R2otate_Sphere_Enemy_2>();
+        Scorekills_Enemy = FindAnyObjectByType<TMP_Scorekills_Enemy>();
+        rotateSTOP = FindAnyObjectByType<R2otate_Sphere_Enemy_2>();
+
+        tMP_HP_Player = FindAnyObjectByType<TMP_HP_Player>();
 
         PointsSpawn = FindAnyObjectByType<Spawn_EnemyAndBoss_Follow_Player>();
-        PointsSpawn.amountEAB++;
 
         HP_Player = FindAnyObjectByType<TMP_HP_Player>();
 
@@ -44,38 +56,51 @@ public class Shipe_ball_enemy : MonoBehaviour
         Player = GameObject.FindWithTag("Player").transform;
     }
 
-    void LateUpdate()
+    void Update()
     {
+        if (transform.position.y <= DeathRound)
+        {
+            PointsSpawn.amountEAB--;
+            Destroy(gameObject);
+        }
+
         if (Player != null)
         {
             if (SetActives && SetNotDeaht)
             {
+                if (Agent != null)
+                {
+                    Agent.speed = speedForward + BustSpeedF_d / RatioASpeedF * OppositeSignSpeedF;
 
-                rotateSTOP.speedRotate = rotateSTOP.shipe_Ball_Enemy.Agent.speed * 50;
+                    Agent.SetDestination(Player.position);
 
-                Agent.speed = speedForward + BustSpeedF_d / RatioASpeedF * OppositeSignSpeedF;
-                Agent.SetDestination(Player.position);
+                    Vector3 rotationPAndA = transform.position - Player.transform.position;
 
-                Vector3 rotationPAndA = transform.position - Player.transform.position;
+                    Quaternion rotates = Quaternion.LookRotation(rotationPAndA);
+                    Quaternion quaternion = Quaternion.Euler(offest);
+                    quaternion.x = 0f;
+                    quaternion.z = 0f;
 
-                Quaternion rotates = Quaternion.LookRotation(rotationPAndA);
-                Quaternion quaternion = Quaternion.Euler(offest);
-                quaternion.x = 0f;
-                quaternion.z = 0f;
+                    transform.rotation = Quaternion.Slerp(transform.rotation, rotates * quaternion, speedRotate * Time.deltaTime);
 
-                transform.rotation = Quaternion.Slerp(transform.rotation, rotates * quaternion, speedRotate * Time.deltaTime);
+                    BustSpeedF_d = Vector3.Distance(Player.transform.position, transform.position) / RatioASpeedF;
+                }
+                else
+                {
+                    Agent = FindAnyObjectByType<NavMeshAgent>();
+                }
 
-                BustSpeedF_d = Vector3.Distance(Player.transform.position, transform.position) / RatioASpeedF;
-            }
-            if (Agent.speed < LimiterSpeedingF)
-            {
-                Agent.speed = LimiterSpeedingF;
+                if (Agent.speed < LimiterSpeedingF)
+                {
+                    Agent.speed = LimiterSpeedingF;
+                }
             }
         }
 
         if (BustSpeedF_d <= 2)
         {
             Agent.enabled = false;
+
             if (SetActives)
             {
                 Agent.speed /= 2f;
@@ -91,21 +116,23 @@ public class Shipe_ball_enemy : MonoBehaviour
                 SetActives = true;
             }
         }
+
         if (DeathTimes)
         {
             Agent.enabled = false;
             SetNotDeaht = false;
 
-            rotateSTOP.enabled = false;
-
             gameObject.GetComponent<Rigidbody>().freezeRotation = false;
 
             TimeDeath += Time.fixedDeltaTime;
+
             if (TimeDeath >= 1)
             {
-                PointsSpawn.amountEAB--;
+                Instantiate(BoomObject, transform.position, Quaternion.identity);
 
                 Destroy(gameObject);
+
+                Scorekills_Enemy.ScoreKills();
             }
         }
     }

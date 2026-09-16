@@ -534,20 +534,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AI_Boss_FollowAanOthers
   Speed_Y: 7
   Speed_Z: 2
+  audio_Switced: {fileID: 0}
   bustControllRotate: {fileID: 0}
   hP_Slider_Boss: {fileID: 0}
   Camera_Player: {fileID: 0}
   Agent: {fileID: 0}
   speedRun: 1
   BustRun: 0
-  SettingsBustRun: 3
+  SettingsBustRun: 6
   speedRotate: 10
   DistanceStopping: 8
   DistanceBustSpeedRun: 15
   offsetRotation: {x: 0, y: 0, z: 0}
   ObjectTrigger: {fileID: 0}
-  GameObjectTeleport: {fileID: 0}
-  DistanceStopFall: -2
+  DistanceStopFall: -1
   currentHP: 0.05
 --- !u!195 &5849766654715424609
 NavMeshAgent:
@@ -597,6 +597,7 @@ MonoBehaviour:
   Attack_1_Area: {fileID: 3876008006378226287}
   Subject: {fileID: 0}
   PreparationForAttack1: 0
+  GroundAnalis: 0
 --- !u!114 &661528206544701893
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -672,7 +673,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 3.81, y: 3.69, z: 3.8}
+  m_Size: {x: 3.81, y: 3.83, z: 3.8}
   m_Center: {x: 0, y: -0.45, z: 0}
 --- !u!114 &4483560130262168651
 MonoBehaviour:
@@ -691,7 +692,9 @@ MonoBehaviour:
   AIattack1: {fileID: 0}
   AIattack2: {fileID: 0}
   Rotate_sphere_Boss: {fileID: 0}
+  hP_Slider_Boss: {fileID: 0}
   Timer: 0
+  GameObjectTeleport: {fileID: 0}
 --- !u!1 &2708171452975060556 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3853321809542818311, guid: 77f81a62fabacc94d8e8b8d4d17b95b9, type: 3}
@@ -765,7 +768,7 @@ MonoBehaviour:
   FastSpeedRotate: 90
   InitialSpeedRotate: 45
   SpeedRotate: 0
-  AtLightningSpeed: 180
+  AtLightningSpeed: 260
   BustSpeedRotate: 0
   QuanityAttack1: 0
   FiniteQuanityAttavk1: 2

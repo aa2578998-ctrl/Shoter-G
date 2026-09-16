@@ -4,7 +4,6 @@ public class Slider_Movement_Spawn : MonoBehaviour
 {
     public float speed;
     public RectTransform slider_HP_B;
-    public Transform BossDetectingRealize;
 
     public Vector3 StartoffsetMove = new Vector3(0f, 0f, 0f);
 

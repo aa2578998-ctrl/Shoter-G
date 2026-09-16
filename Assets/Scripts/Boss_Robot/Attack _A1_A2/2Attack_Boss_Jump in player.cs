@@ -41,10 +41,12 @@ public class Attack_Boss_JumpInPlayer : MonoBehaviour
             Area.HightOffset = 50f;
             TimeAttackJump = 0f;
             GetComponent<NavMeshAgent>().enabled = true;
+
             AIoff.enabled = true;
             StopShot.enabled = true;
             StopShot_1.enabled = true;
             StopRotate.enabled = true;
+
             transform.localScale = new Vector3(1f, 1f, 1f);
             StartCollision = false;
         }

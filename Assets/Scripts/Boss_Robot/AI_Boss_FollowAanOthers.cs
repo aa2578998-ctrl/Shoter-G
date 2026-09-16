@@ -5,7 +5,8 @@ public class AI_Boss_FollowAanOthers : MonoBehaviour
     public float Speed_Y;
     public float Speed_Z;
 
-    public Slider_Movement_Spawn SpawnLiner;
+    public Audio_Switced audio_Switced;
+
     // Ссылка на другой скрипт
     public Rotate_Sphere_Boss bustControllRotate;
     public HP_Slider_Boss hP_Slider_Boss;
@@ -29,20 +30,18 @@ public class AI_Boss_FollowAanOthers : MonoBehaviour
     // Кого будет преследовать
     public Transform ObjectTrigger;
 
-    public Transform GameObjectTeleport;
-
     public float DistanceStopFall;
     public float currentHP;
+
     void Start()
     {
-        SpawnLiner.SliderOne = GameObject.FindWithTag("Boss_1").transform;
         // Ищет компонент для ИИ
         Agent = GetComponent<NavMeshAgent>();
         // Назначение скорости передвижения
         Agent.speed = speedRun;
         // Назначение скорости вращения
         Agent.angularSpeed = speedRotate;
-        // Transform = Игровой объект с таким тегом . изменяется
+
         ObjectTrigger = GameObject.FindWithTag("Player").transform;
         // Ищет игровой объект с таким типом 
         bustControllRotate = GameObject.FindAnyObjectByType<Rotate_Sphere_Boss>();
@@ -50,30 +49,28 @@ public class AI_Boss_FollowAanOthers : MonoBehaviour
         hP_Slider_Boss = FindAnyObjectByType<HP_Slider_Boss>();
         hP_Slider_Boss.currentHP = 1;
 
+        hP_Slider_Boss.Death_Boss = FindAnyObjectByType<Animation_Death_Boss>();
+
         Camera_Player = GameObject.FindAnyObjectByType<Follow_Camera_Player>();
+
+        audio_Switced = FindAnyObjectByType<Audio_Switced>();
+        audio_Switced.AudioBoss2();
     }
 
-    void LateUpdate()
+    void Update()
     {
         // Отдаление камеры по y и z
-        if (Camera_Player.offset.y < 15f)
+        if (Camera_Player.offset.y < 20f)
         {
             Camera_Player.offset.y += Speed_Y * Time.deltaTime;
         }
 
-        if (Camera_Player.offset.z < 6f)
+        if (Camera_Player.offset.z < 8f)
         {
             Camera_Player.offset.z += Speed_Z * Time.deltaTime;
         }
 
-        // Телепортация босса с пропости
-        if (transform.position.y <= DistanceStopFall)
-        {
-            hP_Slider_Boss.currentHP -= currentHP;
-            transform.position = GameObjectTeleport.position;
-        }
-
-        if (ObjectTrigger != null) // Если игрок был найден
+        if (Agent.enabled = true && ObjectTrigger != null) // Если игрок был найден
         {
             // Радиус для увеличения скорости = работа пространством . дистанция (изменение позиции, позиция игрока)
             float BustSpeedRun = Vector3.Distance(transform.position, ObjectTrigger.position);
@@ -90,22 +87,23 @@ public class AI_Boss_FollowAanOthers : MonoBehaviour
                 bustControllRotate.BustSpeedRotate = 0f; // другой скрипт . увеличение скорости поворота = нулю
                 BustRun = 0f; // Увелечение скрости = нулю
             }
+
             if (Stopping < DistanceStopping) // Если радиус больше
             {
                 Agent.speed = 0f; // Скорость передвижения = нулю
                 bustControllRotate.SpeedRotate = 0f; // другой скрипт . увеличение скорости = нулю
-                Agent.ResetPath(); // Сбрасывает путь к точке
             }
             else // Если наоборот
             {
                 // Другой скрипт; скорость поворота = начальному значению
                 bustControllRotate.SpeedRotate = bustControllRotate.InitialSpeedRotate;
                 // Сообщает координаты игрока
-                Agent.SetDestination(ObjectTrigger.position);
+                Agent?.SetDestination(ObjectTrigger.position);
                 // Скорость передвижения = скорости + прибавка к скорости
                 Agent.speed = speedRun + BustRun;
                 // Работа с пространством = позиция игрока - изменение позиции
                 Vector3 direction = ObjectTrigger.position - transform.position;
+
                 // Если позиция не равна нулю
                 if (direction != Vector3.zero)
                 {
@@ -122,6 +120,12 @@ public class AI_Boss_FollowAanOthers : MonoBehaviour
                 }
             }
         }
+        else
+        {
+            ObjectTrigger = GameObject.FindWithTag("Player").transform;
+        }
+
+        hP_Slider_Boss.enabled = true;
     }
 
     void OnDrawGizmosSelected()

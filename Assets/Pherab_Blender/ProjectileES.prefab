@@ -104,7 +104,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cab24efedd1a6b94c950dfa22b48f944, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Forward_Projectile_Pistol
-  speed: 14
+  speed: 17
   timeCorrutine: 2
 --- !u!114 &1412830012644819061
 MonoBehaviour:
@@ -118,4 +118,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a74459be91506f45aa17888f4062e91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Destroy_Projectile_EnemyS1
-  damage: 1
+  damage: 6

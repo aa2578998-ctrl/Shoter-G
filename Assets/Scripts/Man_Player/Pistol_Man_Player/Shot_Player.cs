@@ -13,12 +13,16 @@ public class Shot_Player : MonoBehaviour
     public float Spatrons;
 
     public float Patron;
+
+    public TMP_HP_Player tMP_HP_Player;
+
     void Start()
     {
         Spatrons = Patron;
         corrutineTime = TimeS;
     }
-  void LateUpdate()
+
+    void LateUpdate()
     {
         if (Keyboard.current.spaceKey.wasPressedThisFrame && Spatrons > 0f)
         {
@@ -39,7 +43,8 @@ public class Shot_Player : MonoBehaviour
                     corrutineTime = TimeS;
                 }
             }
+            tMP_HP_Player.CooldownShot();
         }
-       
+        tMP_HP_Player.QuanityPatron();
     }
 }

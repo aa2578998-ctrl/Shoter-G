@@ -8,17 +8,20 @@ public class Controller_Player : MonoBehaviour
     public Vector2 Controll;
     public InputAction Input;
     public TMP_HP_Player playerHP;
-  void Start()
+
+    void Start()
     {
         Input.Enable();
         playerHP = FindAnyObjectByType<TMP_HP_Player>();
     }
-void LateUpdate()
+
+    void LateUpdate()
     {
-        transform.Translate(Vector3.right *  speed * Time.deltaTime * Controll.y);
+        transform.Translate(Vector3.right * speed * Time.deltaTime * Controll.y);
         transform.Rotate(Vector3.up * speedRotate * Time.deltaTime * Controll.x);
         Controll = Input.ReadValue<Vector2>();
     }
+
     private void OnCollisionStay(Collision collision)
     {
         if (collision.gameObject.CompareTag("Boss_1"))

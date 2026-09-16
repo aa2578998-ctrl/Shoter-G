@@ -17,6 +17,9 @@ public class Attack_Boss_Alongtheline : MonoBehaviour
     public Object Attack_1_Area;
     public Transform Subject; // От кого отсупает
     public bool PreparationForAttack1; // Система запуска отступления
+
+    public bool GroundAnalis = false;
+
     void Start()
     {
         Attack_1_Area.GetComponent<MeshRenderer>().enabled = false;
@@ -33,7 +36,7 @@ public class Attack_Boss_Alongtheline : MonoBehaviour
         if (PreparationForAttack1) // Если запуск активен
         {
             attack1 += Time.deltaTime; // Подготовка к атакке, увеличивает плавно
-            if (Subject != null) // Если игрок найден
+            if (Agent.enabled = true && Subject != null) // Если игрок найден
             {
                 Attack_1_Area.GetComponent<MeshRenderer>().enabled = false;
                 Vector3 PositionReatreat = Subject.position + transform.position; // Позиция игрока + изменения . позиции
@@ -63,35 +66,36 @@ public class Attack_Boss_Alongtheline : MonoBehaviour
             transform.rotation = Quaternion.Slerp(transform.rotation, LookSubject * offsetRotate, speedRotation * Time.deltaTime); // Изменение вращения = работа с поворотами (изменение поворота, смотрит на игрока * на смещение, скорость поворота * на плавное изменение)
             attack1Active += Time.deltaTime; // Сама атакка увеличевается плавно
         }
+
         if (attack1Active >= 2f) // Если атакка >= двум
         {
             Attack_1_Area.GetComponent<MeshRenderer>().enabled = false;
             attack1 = 0f;
             Agent.enabled = false;
             Agent.angularSpeed = 0f; // Скорость поворота равна нулю
+
             transform.Translate(Vector3.forward * SpeedForward1A * Time.deltaTime); // Перемещается вперед * скорость перемещения * плавное изменение
             distance += Time.deltaTime;
+
             if (distance >= DistanceComplete) //
             {
-                attack1Active = 0f;
-                Agent.enabled = true;
-                MaxPatrons.QuanityAttack1 = 0; //
-                indent.enabled = true; //
+                GroundAnalis = true;
             }
         }
     }
+
     public void Attack1() //
     {
         if (indent != null) //
         {
             distance = 0f;
+            GroundAnalis = false;
+
             Agent.enabled = true;
             Agent.speed = speedReatreat; //
             Agent.angularSpeed = speedRotation; //
             indent.enabled = false; //
-            indent.Agent.ResetPath();
             PreparationForAttack1 = true; //
-
         }
     }
 }

@@ -121,14 +121,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0dda71589d5221f4db797ca94fd16746, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Boom_Animated
-  Speed_Y: 7
-  Speed_Z: 2
+  audio_Switced: {fileID: 0}
+  Speed_Y: 16
+  Speed_Z: 7
+  SpawnBoss: {fileID: 0}
   Speed: 30
   Timer: 0
   TimeLimit: 1
   scale: {x: 1, y: 1, z: 1}
   scaleLimit: {x: 9, y: 9, z: 9}
   Camera_Player: {fileID: 0}
+  tMP_Scorekills_Boss: {fileID: 0}
 --- !u!1001 &6241952488796447203
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -48,7 +48,6 @@ MonoBehaviour:
   speed: 30
   timeCorrutine: 1
   scorees: 1
-  score: {fileID: 0}
 --- !u!1001 &4584395286289289350
 PrefabInstance:
   m_ObjectHideFlags: 0

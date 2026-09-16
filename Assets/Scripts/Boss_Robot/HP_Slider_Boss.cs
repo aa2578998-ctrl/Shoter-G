@@ -27,16 +27,14 @@ public class HP_Slider_Boss : MonoBehaviour
         initite.enabled = false;
 
         rectTransform = GetComponent<RectTransform>();
-        Death_Boss = FindAnyObjectByType<Animation_Death_Boss>();
         slider_Boss_HP = FindAnyObjectByType<HP_Slider_Boss>();
         Movement_Slider = FindAnyObjectByType<Slider_Movement_Spawn>();
     }
 
     void LateUpdate()
     {
-
         SetHPslider(currentHP);
-        if (currentHP <= 0f)
+        if (currentHP <= 0.01f)
         {
             Death_Boss.ActivatedDeath();
             slider_Boss_HP.enabled = false;
@@ -44,7 +42,7 @@ public class HP_Slider_Boss : MonoBehaviour
             Movement_Slider.SpawnMove = false;
             Movement_Slider.DeadMove = true;
         }
-        else if (currentHP > 0f)
+        else
         {
             Movement_Slider.SpawnMove = true;
             Movement_Slider.DeadMove = false;

@@ -155,6 +155,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7677870ec7b362042805874c3a770a09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Shipe_ball_enemy
+  BoomObject: {fileID: 8559077774358819921, guid: 346d318068f6f554dbca0ebb44782cfa, type: 3}
   Agent: {fileID: 2475964143157149369}
   speedForward: 25
   speedRotate: 10
@@ -162,16 +163,19 @@ MonoBehaviour:
   RatioASpeedF: 1
   LimiterSpeedingF: 1
   damage: 1
+  DeathRound: -1
   SetActives: 1
-  HPenemy2: 3
+  HPenemy2: 2
   OppositeSignSpeedF: -1
   Player: {fileID: 0}
   offest: {x: 0, y: 0, z: 0}
   rotateSTOP: {fileID: 2783997641773349998}
   PointsSpawn: {fileID: 0}
   HP_Player: {fileID: 0}
+  tMP_HP_Player: {fileID: 0}
+  Scorekills_Enemy: {fileID: 0}
   times: 0
-  StopTimes: 2
+  StopTimes: 3
   TimeDeath: 0
   DeathTimes: 0
   SetNotDeaht: 1

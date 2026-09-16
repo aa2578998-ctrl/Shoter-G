@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+
 public class Jump_Player : MonoBehaviour
 {// 
     public float disLayer = 1.1f;
@@ -11,14 +12,22 @@ public class Jump_Player : MonoBehaviour
     public float jumpHight;
     // 
     private Rigidbody Rb;
-    // 
+
+    public Transform Teleport;
+
     public LayerMask surface;
+
+    public float DeathRound;
+
+    public TMP_HP_Player tMP_HP_Player;
+
+
     void Start()
     {
         // 
         Rb = GetComponent<Rigidbody>();
     }
-  void LateUpdate()
+    void LateUpdate()
     {
         //
         bool Ground = Physics.Raycast(transform.position, Vector3.down, disLayer, surface);
@@ -40,6 +49,13 @@ public class Jump_Player : MonoBehaviour
         {
             //
             Rb.linearVelocity += Vector3.up * Physics.gravity.y * (jumpGravityJ - 1) * Time.deltaTime;
+        }
+
+        if (transform.position.y <= DeathRound)
+        {
+            transform.position = Teleport.position;
+            tMP_HP_Player.currentHP -= 10;
+            tMP_HP_Player.UpdateHPtext();
         }
 
     }

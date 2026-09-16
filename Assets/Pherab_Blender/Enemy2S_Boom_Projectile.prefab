@@ -66,7 +66,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a6a4f880017e36a43aeb08ebf60a4ee2, type: 3}
       propertyPath: m_Name
-      value: Boom_Projectile_Boss
+      value: Enemy2S_Boom_Projectile
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a6a4f880017e36a43aeb08ebf60a4ee2, type: 3}
       propertyPath: m_TagString
@@ -103,7 +103,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5f13751e43dfca4db8978ea1bf5a9b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Shock_Wave_Animation_Boss
-  speed: 40000
+  speed: 30000
   scale: {x: 1, y: 1, z: 1}
   scaleLimit: {x: 9, y: 9, z: 9}
   Timer: 0
@@ -142,4 +142,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   tMP_HP_Player: {fileID: 0}
-  damage: 20
+  damage: 10

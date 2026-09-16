@@ -34,13 +34,13 @@ public class Shot_MiniBot : MonoBehaviour
     // 
     public float MINRangeATC = 0.2f;
     // 
-    public Vector3 offs = new Vector3 (0, 0, 0);
+    public Vector3 offs = new Vector3(0, 0, 0);
     // 
     void Start()
     {// 
         amountPatrons = amountSP;
         // 
-        attackTime = (float)System.Math.Round(Random.Range(MINRangeATC, MINRangeATC), 1);
+        attackTime = (float)System.Math.Round(Random.Range(MINRangeATC, MAXRangeATC), 1);
     }
     // 
     void LateUpdate()
@@ -77,7 +77,7 @@ public class Shot_MiniBot : MonoBehaviour
                 // 
                 else
                 {
-                 //   
+                    //   
                     SattackTime -= Time.deltaTime;
                 }
             }
@@ -114,7 +114,7 @@ public class Shot_MiniBot : MonoBehaviour
     }//
     private void OnDrawGizmosSelected()
     {//
-   Quaternion offsetr = Quaternion.Euler(offs);
+        Quaternion offsetr = Quaternion.Euler(offs);
         // 
         Vector3 rayDir = transform.rotation * (offsetr * Vector3.forward);
         // 
@@ -124,9 +124,9 @@ public class Shot_MiniBot : MonoBehaviour
         }
         // 
         else
-            // 
-        {  Gizmos.color = Color.red;}
         // 
-        Gizmos.DrawLine(transform.position,transform.position + rayDir * disL);
+        { Gizmos.color = Color.red; }
+        // 
+        Gizmos.DrawLine(transform.position, transform.position + rayDir * disL);
     }
 }
