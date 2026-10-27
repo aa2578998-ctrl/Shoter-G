@@ -354,15 +354,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 77f81a62fabacc94d8e8b8d4d17b95b9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 25.5
+      value: 24.3
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 77f81a62fabacc94d8e8b8d4d17b95b9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.56
+      value: 2.96
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 77f81a62fabacc94d8e8b8d4d17b95b9, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -11.02
+      value: 5.2547674
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 77f81a62fabacc94d8e8b8d4d17b95b9, type: 3}
       propertyPath: m_LocalRotation.w
@@ -392,6 +392,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7880164236962127019, guid: 77f81a62fabacc94d8e8b8d4d17b95b9, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 033c45cdedbbf27438fba04f1358b3c1, type: 2}
+    - target: {fileID: -6530284543769888500, guid: 77f81a62fabacc94d8e8b8d4d17b95b9, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 033c45cdedbbf27438fba04f1358b3c1, type: 2}
     - target: {fileID: -5684232321182898201, guid: 77f81a62fabacc94d8e8b8d4d17b95b9, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.00749588
@@ -428,6 +436,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90
       objectReference: {fileID: 0}
+    - target: {fileID: -1051059925457447938, guid: 77f81a62fabacc94d8e8b8d4d17b95b9, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 033c45cdedbbf27438fba04f1358b3c1, type: 2}
     - target: {fileID: 919132149155446097, guid: 77f81a62fabacc94d8e8b8d4d17b95b9, type: 3}
       propertyPath: m_Name
       value: Boss Sphere 2
@@ -436,6 +448,22 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Boss_1
       objectReference: {fileID: 0}
+    - target: {fileID: 1747520000129641542, guid: 77f81a62fabacc94d8e8b8d4d17b95b9, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: ecbaaaf54df39504a8bd1498d9e08cf9, type: 2}
+    - target: {fileID: 1893194068992980029, guid: 77f81a62fabacc94d8e8b8d4d17b95b9, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 033c45cdedbbf27438fba04f1358b3c1, type: 2}
+    - target: {fileID: 6485831285007443847, guid: 77f81a62fabacc94d8e8b8d4d17b95b9, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 033c45cdedbbf27438fba04f1358b3c1, type: 2}
+    - target: {fileID: 6856928619284007219, guid: 77f81a62fabacc94d8e8b8d4d17b95b9, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: ecbaaaf54df39504a8bd1498d9e08cf9, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -534,14 +562,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AI_Boss_FollowAanOthers
   Speed_Y: 7
   Speed_Z: 2
-  audio_Switced: {fileID: 0}
   bustControllRotate: {fileID: 0}
   hP_Slider_Boss: {fileID: 0}
   Camera_Player: {fileID: 0}
   Agent: {fileID: 0}
   speedRun: 1
   BustRun: 0
-  SettingsBustRun: 6
+  SettingsBustRun: 8
   speedRotate: 10
   DistanceStopping: 8
   DistanceBustSpeedRun: 15
@@ -549,6 +576,7 @@ MonoBehaviour:
   ObjectTrigger: {fileID: 0}
   DistanceStopFall: -1
   currentHP: 0.05
+  audio_Switced: {fileID: 0}
 --- !u!195 &5849766654715424609
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -597,6 +625,7 @@ MonoBehaviour:
   Attack_1_Area: {fileID: 3876008006378226287}
   Subject: {fileID: 0}
   PreparationForAttack1: 0
+  sound_Manager: {fileID: 0}
   GroundAnalis: 0
 --- !u!114 &661528206544701893
 MonoBehaviour:
@@ -621,12 +650,13 @@ MonoBehaviour:
   speedScale: 2
   speedScaleJump: 5
   speedJump: 40
-  speedAttackJump: 100
+  speedAttackJump: 200
   TimeForJump: 0
   TimeJump: 0
   TimeAttackJump: 0
   StopScale: 0
   StartCollision: 0
+  sound_Manager: {fileID: 0}
 --- !u!54 &233667153175786728
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -694,7 +724,9 @@ MonoBehaviour:
   Rotate_sphere_Boss: {fileID: 0}
   hP_Slider_Boss: {fileID: 0}
   Timer: 0
+  sound_Manager: {fileID: 0}
   GameObjectTeleport: {fileID: 0}
+  audio_Switced: {fileID: 0}
 --- !u!1 &2708171452975060556 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3853321809542818311, guid: 77f81a62fabacc94d8e8b8d4d17b95b9, type: 3}
@@ -746,6 +778,7 @@ MonoBehaviour:
   PrimaryPattrons: 20
   QuanityPattrons: 0
   AttackChoice: 0
+  sound_Manager: {fileID: 0}
 --- !u!1 &3059569416622694693 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4222444054644776302, guid: 77f81a62fabacc94d8e8b8d4d17b95b9, type: 3}
@@ -768,7 +801,7 @@ MonoBehaviour:
   FastSpeedRotate: 90
   InitialSpeedRotate: 45
   SpeedRotate: 0
-  AtLightningSpeed: 260
+  AtLightningSpeed: 370
   BustSpeedRotate: 0
   QuanityAttack1: 0
   FiniteQuanityAttavk1: 2
@@ -823,6 +856,7 @@ MonoBehaviour:
   PrimaryPattrons: 20
   QuanityPattrons: 0
   AttackChoice: 0
+  sound_Manager: {fileID: 0}
 --- !u!4 &6527810578420556304 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -3856324343253082533, guid: 77f81a62fabacc94d8e8b8d4d17b95b9, type: 3}

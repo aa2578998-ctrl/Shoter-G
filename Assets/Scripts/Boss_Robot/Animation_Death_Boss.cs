@@ -12,8 +12,11 @@ public class Animation_Death_Boss : MonoBehaviour
     public HP_Slider_Boss hP_Slider_Boss;
 
     public float Timer;
+    public Sound_Manager sound_Manager;
 
     public GameObject GameObjectTeleport;
+
+    public Audio_Switced audio_Switced;
 
     void Start()
     {
@@ -25,7 +28,9 @@ public class Animation_Death_Boss : MonoBehaviour
         hP_Slider_Boss = GameObject.FindAnyObjectByType<HP_Slider_Boss>();
 
         GameObjectTeleport = GameObject.Find("Teleport_BossAndPlayer");
+        sound_Manager = FindAnyObjectByType<Sound_Manager>();
 
+        audio_Switced = FindAnyObjectByType<Audio_Switced>();
     }
 
     public void ActivatedDeath()
@@ -62,7 +67,10 @@ public class Animation_Death_Boss : MonoBehaviour
         {
             Instantiate(Boom, transform.position, Quaternion.identity);
 
+            sound_Manager.Reproducte(7, gameObject, 1f);
+
             Destroy(gameObject);
+            audio_Switced.AudioBattle1();
             Timer = 0;
         }
         // Телепортация босса с пропости

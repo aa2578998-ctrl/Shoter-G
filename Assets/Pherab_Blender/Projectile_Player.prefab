@@ -61,6 +61,18 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2377760572789683119, guid: 015c138986f761844b50cd818af90694, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 144.21368
+      objectReference: {fileID: 0}
+    - target: {fileID: 2377760572789683119, guid: 015c138986f761844b50cd818af90694, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 144.21368
+      objectReference: {fileID: 0}
+    - target: {fileID: 2377760572789683119, guid: 015c138986f761844b50cd818af90694, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 27.967987
+      objectReference: {fileID: 0}
+    - target: {fileID: 2377760572789683119, guid: 015c138986f761844b50cd818af90694, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -108,6 +120,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Projectile Pl
       objectReference: {fileID: 0}
+    - target: {fileID: 3509619641864489152, guid: 015c138986f761844b50cd818af90694, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 469f3906aaa70654db5de9e73acae840, type: 2}
     - target: {fileID: 7558735066902568671, guid: 015c138986f761844b50cd818af90694, type: 3}
       propertyPath: currentHP
       value: 0.01

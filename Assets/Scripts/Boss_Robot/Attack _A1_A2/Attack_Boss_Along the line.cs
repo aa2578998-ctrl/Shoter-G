@@ -3,6 +3,8 @@ using UnityEngine;
 using UnityEngine.AI;
 public class Attack_Boss_Alongtheline : MonoBehaviour
 {
+    float Timers = 0;
+
     public Vector3 offset = new Vector3(0f, 0f, 0f); // Смещение в пространстве, (использован для вращения)
     public NavMeshAgent Agent; // Сам ИИ
     public float speedReatreat; // Скорость отступления
@@ -18,11 +20,17 @@ public class Attack_Boss_Alongtheline : MonoBehaviour
     public Transform Subject; // От кого отсупает
     public bool PreparationForAttack1; // Система запуска отступления
 
-    public bool GroundAnalis = false;
+    public Sound_Manager sound_Manager;
 
+    public bool GroundAnalis = false;
+    int s_M = 0
+    ;
     void Start()
     {
         Attack_1_Area.GetComponent<MeshRenderer>().enabled = false;
+
+        sound_Manager = FindAnyObjectByType<Sound_Manager>();
+
 
         indent = FindAnyObjectByType<AI_Boss_FollowAanOthers>(); // 1 ищет объект с таким типом
         MaxPatrons = FindAnyObjectByType<Rotate_Sphere_Boss>(); // 2 ищет объект с таким типом
@@ -31,6 +39,7 @@ public class Attack_Boss_Alongtheline : MonoBehaviour
         Agent.angularSpeed = speedRotation; // Задает скорость поворота
         Subject = GameObject.FindWithTag("Player").transform; // Transform = игровой объект с таким тегом . изменяем в тег
     }
+
     void Update()
     {
         if (PreparationForAttack1) // Если запуск активен
@@ -51,6 +60,12 @@ public class Attack_Boss_Alongtheline : MonoBehaviour
         }
         if (attack1 >= 3f) // Если переходная атакка => трем
         {
+            if (s_M == 0)
+            {
+                s_M++;
+                sound_Manager.Reproducte(4, gameObject, 0.5f);
+            }
+
             PreparationForAttack1 = false; // Отключает отступление
             Agent.speed = 0f; // Скорость передвижения = нулю
 
@@ -67,10 +82,16 @@ public class Attack_Boss_Alongtheline : MonoBehaviour
             attack1Active += Time.deltaTime; // Сама атакка увеличевается плавно
         }
 
-        if (attack1Active >= 2f) // Если атакка >= двум
+        if (attack1Active >= 1f) // Если атакка >= 1
         {
             Attack_1_Area.GetComponent<MeshRenderer>().enabled = false;
             attack1 = 0f;
+            if (s_M == 1)
+            {
+                s_M++;
+                sound_Manager.Reproducte(10, gameObject, 1f);
+            }
+
             Agent.enabled = false;
             Agent.angularSpeed = 0f; // Скорость поворота равна нулю
 
@@ -80,6 +101,20 @@ public class Attack_Boss_Alongtheline : MonoBehaviour
             if (distance >= DistanceComplete) //
             {
                 GroundAnalis = true;
+                Timers += Time.deltaTime;
+                if (Timers > 4)
+                {
+
+                    attack1Active = 0f;
+                    distance = 0f;
+
+                    MaxPatrons.QuanityAttack1 = 0;
+
+                    indent.enabled = true; //
+                    Agent.enabled = false;
+
+                    GroundAnalis = false;
+                }
             }
         }
     }
@@ -95,7 +130,8 @@ public class Attack_Boss_Alongtheline : MonoBehaviour
             Agent.speed = speedReatreat; //
             Agent.angularSpeed = speedRotation; //
             indent.enabled = false; //
-            PreparationForAttack1 = true; //
+            PreparationForAttack1 = true;
+            s_M = 0;
         }
     }
 }

@@ -21,11 +21,12 @@ public class Jump_Player : MonoBehaviour
 
     public TMP_HP_Player tMP_HP_Player;
 
-
+    public Sound_Manager sound_Manager;
     void Start()
     {
         // 
         Rb = GetComponent<Rigidbody>();
+        sound_Manager = FindAnyObjectByType<Sound_Manager>();
     }
     void LateUpdate()
     {
@@ -34,6 +35,7 @@ public class Jump_Player : MonoBehaviour
         // 
         if (Keyboard.current != null && Keyboard.current.yKey.wasPressedThisFrame && Ground)
         {
+            sound_Manager.Reproducte(9, gameObject, 1f, true);
             // 
             Rb.linearVelocity = new Vector3(Rb.linearVelocity.x, jumpHight, Rb.linearVelocity.z);
             // 
@@ -59,6 +61,7 @@ public class Jump_Player : MonoBehaviour
         }
 
     }
+
     private void OnDrawGizmosSelected()
     {
         //

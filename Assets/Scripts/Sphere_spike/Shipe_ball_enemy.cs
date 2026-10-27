@@ -1,10 +1,8 @@
-using Unity.Microsoft.GDK;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class Shipe_ball_enemy : MonoBehaviour
 {
-    public GameObject BoomObject;
 
     public NavMeshAgent Agent;
     public float speedForward = 2;
@@ -25,6 +23,13 @@ public class Shipe_ball_enemy : MonoBehaviour
     [SerializeField] public Transform Player;
     public Vector3 offest = new Vector3(0f, 0f, 0f);
 
+
+    public GameObject Boom;
+
+    public Sound_Manager sound_Manager;
+    int AS_ = 1;
+    int s_M = 0;
+
     public R2otate_Sphere_Enemy_2 rotateSTOP;
     public Spawn_EnemyAndBoss_Follow_Player PointsSpawn;
     public TMP_HP_Player HP_Player;
@@ -40,6 +45,7 @@ public class Shipe_ball_enemy : MonoBehaviour
     public bool SetNotDeaht = true;
 
 
+    public AudioClip Death;
     void Start()
     {
         Scorekills_Enemy = FindAnyObjectByType<TMP_Scorekills_Enemy>();
@@ -54,6 +60,8 @@ public class Shipe_ball_enemy : MonoBehaviour
         Agent.speed = speedForward;
         Agent.angularSpeed = speedRotate;
         Player = GameObject.FindWithTag("Player").transform;
+
+        sound_Manager = FindAnyObjectByType<Sound_Manager>();
     }
 
     void Update()
@@ -61,6 +69,9 @@ public class Shipe_ball_enemy : MonoBehaviour
         if (transform.position.y <= DeathRound)
         {
             PointsSpawn.amountEAB--;
+            sound_Manager.Reproducte(AS_, gameObject, 0.6f);
+            Instantiate(Boom, transform.position, Quaternion.identity);
+
             Destroy(gameObject);
         }
 
@@ -105,6 +116,12 @@ public class Shipe_ball_enemy : MonoBehaviour
             {
                 Agent.speed /= 2f;
             }
+
+            if (s_M == 0)
+            {
+                s_M++;
+                sound_Manager.Reproducte(8, gameObject, 0.5f);
+            }
             SetActives = false;
             transform.Translate(Vector3.back * Agent.speed * Time.deltaTime);
 
@@ -113,6 +130,7 @@ public class Shipe_ball_enemy : MonoBehaviour
             {
                 times = 0;
                 Agent.enabled = true;
+                s_M = 0;
                 SetActives = true;
             }
         }
@@ -128,7 +146,8 @@ public class Shipe_ball_enemy : MonoBehaviour
 
             if (TimeDeath >= 1)
             {
-                Instantiate(BoomObject, transform.position, Quaternion.identity);
+                sound_Manager.Reproducte(AS_, gameObject, 0.6f);
+                Instantiate(Boom, transform.position, Quaternion.identity);
 
                 Destroy(gameObject);
 

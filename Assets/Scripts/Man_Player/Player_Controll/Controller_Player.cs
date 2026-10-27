@@ -4,10 +4,14 @@ public class Controller_Player : MonoBehaviour
 {
     public int damage;
     public float speed;
+
     public float speedRotate;
+    public float speedRotateCorePlus;
+
     public Vector2 Controll;
     public InputAction Input;
     public TMP_HP_Player playerHP;
+    public GameObject RotateCore;
 
     void Start()
     {
@@ -19,6 +23,9 @@ public class Controller_Player : MonoBehaviour
     {
         transform.Translate(Vector3.right * speed * Time.deltaTime * Controll.y);
         transform.Rotate(Vector3.up * speedRotate * Time.deltaTime * Controll.x);
+
+        RotateCore.transform.Rotate(Vector3.up * (speed + speedRotateCorePlus) * Time.deltaTime * Controll.y);
+
         Controll = Input.ReadValue<Vector2>();
     }
 

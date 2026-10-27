@@ -17,15 +17,21 @@ public class Bomb_Forward_Projectile_Boss : MonoBehaviour
 
     public Transform Boom;
 
+    public Sound_Manager sound_Manager;
+
     private void Start()
     {
         playerHP = FindAnyObjectByType<TMP_HP_Player>();
         Rigidbody = GetComponent<Rigidbody>(); // Ищет компонент для изменений
+        sound_Manager = FindAnyObjectByType<Sound_Manager>();
+
     }
+
     private void FixedUpdate() // Обновляется в одинаковое время
     {
         Rigidbody.AddForce(Vector3.down * gravityForce, ForceMode.Acceleration); // Физика объекта . использующая дополнительную силу (Сила притяжения тянущая вниз * скорость сила притяжения, ускорение игнорирующую массу)
     }
+
     void LateUpdate()
     {
         Trigger = Physics.Raycast(transform.position, Vector3.forward, distanceLaser, Subject); // Контроль за активацией = Физика . с рисовкой (изменение позиции, смотрящую вперед, длина линии и на кого реагирует)
@@ -41,6 +47,7 @@ public class Bomb_Forward_Projectile_Boss : MonoBehaviour
             {
                 Destroy(gameObject); // Уничтожает объект
                 Instantiate(Boom, transform.position, Quaternion.identity);
+                sound_Manager.Reproducte(15, gameObject, 0.1f);
             }
         }
         if (Trigger) // Если луч активен

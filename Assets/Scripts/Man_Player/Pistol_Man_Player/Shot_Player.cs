@@ -15,6 +15,8 @@ public class Shot_Player : MonoBehaviour
     public float Patron;
 
     public TMP_HP_Player tMP_HP_Player;
+    public Sound_Manager sound_Manager;
+    int AS = 2;
 
     void Start()
     {
@@ -29,6 +31,9 @@ public class Shot_Player : MonoBehaviour
             Instantiate(Projectile, transform.position, transform.rotation);
 
             Spatrons -= 1f;
+
+            AS = 6;
+            sound_Manager.Reproducte(AS, gameObject, 0.1f);
         }
         else if (Spatrons <= 0f)
         {
@@ -41,6 +46,9 @@ public class Shot_Player : MonoBehaviour
                 {
                     Spatrons = Patron;
                     corrutineTime = TimeS;
+
+                    AS = 5;
+                    sound_Manager.Reproducte(AS, gameObject, 0.5f);
                 }
             }
             tMP_HP_Player.CooldownShot();

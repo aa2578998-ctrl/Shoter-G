@@ -35,9 +35,13 @@ public class Shot_MiniBot : MonoBehaviour
     public float MINRangeATC = 0.2f;
     // 
     public Vector3 offs = new Vector3(0, 0, 0);
+
+    public Sound_Manager sound_Manager;
     // 
     void Start()
     {// 
+        sound_Manager = FindAnyObjectByType<Sound_Manager>();
+
         amountPatrons = amountSP;
         // 
         attackTime = (float)System.Math.Round(Random.Range(MINRangeATC, MAXRangeATC), 1);
@@ -73,6 +77,7 @@ public class Shot_MiniBot : MonoBehaviour
                     amountPatrons -= 1f;
                     // 
                     SattackTime = attackTime;
+                    sound_Manager.Reproducte(11, gameObject, 0.1f);
                 }
                 // 
                 else

@@ -9,6 +9,9 @@ public class Dash_Player2 : MonoBehaviour
 
     public TMP_HP_Player tMP_HP_Player;
 
+    public Sound_Manager sound_Manager;
+
+
     void LateUpdate()
     {
         if (InputD && Keyboard.current.iKey.wasPressedThisFrame)
@@ -16,6 +19,8 @@ public class Dash_Player2 : MonoBehaviour
             transform.Translate(Vector3.right * Distance * Time.deltaTime);
             InputD = false;
             cooldownE = cooldown;
+
+            sound_Manager.Reproducte(12, gameObject, 1f);
         }
         if (cooldownE > 0f)
         {

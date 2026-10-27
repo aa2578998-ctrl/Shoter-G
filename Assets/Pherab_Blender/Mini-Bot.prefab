@@ -22,15 +22,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7020d099ba55c494486ae3484adc4d94, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 11.949074
+      value: 6.2042117
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7020d099ba55c494486ae3484adc4d94, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.52
+      value: 2.04
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7020d099ba55c494486ae3484adc4d94, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.74794525
+      value: -6.237695
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7020d099ba55c494486ae3484adc4d94, type: 3}
       propertyPath: m_LocalRotation.w
@@ -80,6 +80,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.x
       value: -90
       objectReference: {fileID: 0}
+    - target: {fileID: -2571118854743697038, guid: 7020d099ba55c494486ae3484adc4d94, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 569ab9df4818d84499f2a330d5dfbc87, type: 2}
+    - target: {fileID: -1461304994638716399, guid: 7020d099ba55c494486ae3484adc4d94, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 569ab9df4818d84499f2a330d5dfbc87, type: 2}
+    - target: {fileID: -678588488315902003, guid: 7020d099ba55c494486ae3484adc4d94, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 569ab9df4818d84499f2a330d5dfbc87, type: 2}
     - target: {fileID: -516098083770646512, guid: 7020d099ba55c494486ae3484adc4d94, type: 3}
       propertyPath: m_Name
       value: Rod
@@ -173,6 +185,7 @@ MonoBehaviour:
   MAXRangeATC: 0.7
   MINRangeATC: 0.2
   offs: {x: 90, y: 0, z: 0}
+  sound_Manager: {fileID: 0}
 --- !u!1 &6015950788796023620 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -5117700066308340382, guid: 7020d099ba55c494486ae3484adc4d94, type: 3}
@@ -266,6 +279,7 @@ MonoBehaviour:
   con: {fileID: 2143268107058484355}
   Scorekills_Enemy: {fileID: 0}
   tMP_HP_Player: {fileID: 0}
+  sound_Manager: {fileID: 0}
   CONspeed: 4
   StopDistance: 7
   DeathZone: -2

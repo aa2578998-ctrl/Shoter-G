@@ -16,7 +16,7 @@ public class AIFollowP : MonoBehaviour
     public TMP_Scorekills_Enemy Scorekills_Enemy;
 
     public TMP_HP_Player tMP_HP_Player;
-
+    public Sound_Manager sound_Manager;
     // Первоначальные значения управлением скорости движения
     public float CONspeed = 0f;
     // Управление скорости движения
@@ -44,6 +44,8 @@ public class AIFollowP : MonoBehaviour
         tMP_HP_Player = FindAnyObjectByType<TMP_HP_Player>();
 
         spawn_EnemyAndBoss_Follow_Player = FindAnyObjectByType<Spawn_EnemyAndBoss_Follow_Player>();
+        sound_Manager = FindAnyObjectByType<Sound_Manager>();
+
     }
 
     void Update()
@@ -52,6 +54,8 @@ public class AIFollowP : MonoBehaviour
         {
             Destroy(gameObject);
             spawn_EnemyAndBoss_Follow_Player.amountEAB--;
+            sound_Manager.Reproducte(1, gameObject, 0.4f);
+            sound_Manager.Reproducte(0, gameObject, 0.5f);
         }
         // Если преследуемый был найден
         if (Player != null)
@@ -107,8 +111,12 @@ public class AIFollowP : MonoBehaviour
             Destroy(gameObject);
 
             Scorekills_Enemy.ScoreKills();
+            sound_Manager.Reproducte(1, gameObject, 0.4f);
+
+            sound_Manager.Reproducte(0, gameObject, 0.5f);
         }
     }
+
 
     private void OnDrawGizmosSelected()
     {// Цвет линии - жёлтый

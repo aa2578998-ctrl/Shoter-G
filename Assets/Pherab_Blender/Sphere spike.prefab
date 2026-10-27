@@ -155,7 +155,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7677870ec7b362042805874c3a770a09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Shipe_ball_enemy
-  BoomObject: {fileID: 8559077774358819921, guid: 346d318068f6f554dbca0ebb44782cfa, type: 3}
   Agent: {fileID: 2475964143157149369}
   speedForward: 25
   speedRotate: 10
@@ -169,6 +168,8 @@ MonoBehaviour:
   OppositeSignSpeedF: -1
   Player: {fileID: 0}
   offest: {x: 0, y: 0, z: 0}
+  Boom: {fileID: 8559077774358819921, guid: 346d318068f6f554dbca0ebb44782cfa, type: 3}
+  sound_Manager: {fileID: 0}
   rotateSTOP: {fileID: 2783997641773349998}
   PointsSpawn: {fileID: 0}
   HP_Player: {fileID: 0}
@@ -179,6 +180,7 @@ MonoBehaviour:
   TimeDeath: 0
   DeathTimes: 0
   SetNotDeaht: 1
+  Death: {fileID: 0}
 --- !u!195 &2475964143157149369
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -253,6 +255,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Combat Automobile
       objectReference: {fileID: 0}
+    - target: {fileID: 1556108311033869237, guid: af35cae534d676641ba358c2cb6bacba, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 569ab9df4818d84499f2a330d5dfbc87, type: 2}
     - target: {fileID: 4090795482948150850, guid: af35cae534d676641ba358c2cb6bacba, type: 3}
       propertyPath: shipe_Ball_Enemy
       value: 

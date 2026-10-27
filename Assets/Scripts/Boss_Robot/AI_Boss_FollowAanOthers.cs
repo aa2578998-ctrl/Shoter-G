@@ -4,9 +4,6 @@ public class AI_Boss_FollowAanOthers : MonoBehaviour
 {
     public float Speed_Y;
     public float Speed_Z;
-
-    public Audio_Switced audio_Switced;
-
     // Ссылка на другой скрипт
     public Rotate_Sphere_Boss bustControllRotate;
     public HP_Slider_Boss hP_Slider_Boss;
@@ -33,6 +30,8 @@ public class AI_Boss_FollowAanOthers : MonoBehaviour
     public float DistanceStopFall;
     public float currentHP;
 
+    public Audio_Switced audio_Switced;
+
     void Start()
     {
         // Ищет компонент для ИИ
@@ -41,6 +40,8 @@ public class AI_Boss_FollowAanOthers : MonoBehaviour
         Agent.speed = speedRun;
         // Назначение скорости вращения
         Agent.angularSpeed = speedRotate;
+
+        audio_Switced = FindAnyObjectByType<Audio_Switced>();
 
         ObjectTrigger = GameObject.FindWithTag("Player").transform;
         // Ищет игровой объект с таким типом 
@@ -51,23 +52,25 @@ public class AI_Boss_FollowAanOthers : MonoBehaviour
 
         hP_Slider_Boss.Death_Boss = FindAnyObjectByType<Animation_Death_Boss>();
 
-        Camera_Player = GameObject.FindAnyObjectByType<Follow_Camera_Player>();
-
-        audio_Switced = FindAnyObjectByType<Audio_Switced>();
         audio_Switced.AudioBoss2();
+
+        Camera_Player = GameObject.FindAnyObjectByType<Follow_Camera_Player>();
     }
 
     void Update()
     {
-        // Отдаление камеры по y и z
-        if (Camera_Player.offset.y < 20f)
+        if (Camera_Player != null)
         {
-            Camera_Player.offset.y += Speed_Y * Time.deltaTime;
-        }
+            // Отдаление камеры по y и z
+            if (Camera_Player.offset.y < 20f)
+            {
+                Camera_Player.offset.y += Speed_Y * Time.deltaTime;
+            }
 
-        if (Camera_Player.offset.z < 8f)
-        {
-            Camera_Player.offset.z += Speed_Z * Time.deltaTime;
+            if (Camera_Player.offset.z < 8f)
+            {
+                Camera_Player.offset.z += Speed_Z * Time.deltaTime;
+            }
         }
 
         if (Agent.enabled = true && ObjectTrigger != null) // Если игрок был найден

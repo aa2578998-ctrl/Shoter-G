@@ -7,7 +7,7 @@ public class Shot_BossSphere_1 : MonoBehaviour
 
     public LayerMask Player; //
     public GameObject projectile; // 
-    public Vector3 offsetR = new Vector3 (0, 0, 0); // 
+    public Vector3 offsetR = new Vector3(0, 0, 0); // 
 
     public bool StartTriggers; // 
     public bool Trigger; // 
@@ -22,15 +22,20 @@ public class Shot_BossSphere_1 : MonoBehaviour
     public int PrimaryPattrons; //
     public int QuanityPattrons; //
     public int AttackChoice;
+
+    public Sound_Manager sound_Manager;
+
     void Start()
     {
         QuanityPattrons = PrimaryPattrons; //
         attack2 = GameObject.FindAnyObjectByType<Attack_Boss_JumpInPlayer>();
         attack1 = GameObject.FindAnyObjectByType<Attack_Boss_Alongtheline>(); // 
         Quanity = GameObject.FindAnyObjectByType<Rotate_Sphere_Boss>(); //
+
+        sound_Manager = FindAnyObjectByType<Sound_Manager>();
     }
 
- void LateUpdate()
+    void LateUpdate()
     {
         Quaternion offsetRotation = Quaternion.Euler(offsetR); //
         Vector3 ray = transform.rotation * (offsetRotation * Vector3.forward); // 
@@ -39,6 +44,7 @@ public class Shot_BossSphere_1 : MonoBehaviour
         if (PattronsStart && Trigger && StartTriggers) // 
         {
             Instantiate(projectile, transform.position, transform.rotation * offsetRotation); // 
+            sound_Manager.Reproducte(6, gameObject, 0.1f);
 
             QuanityPattrons -= 1; // 
             PattronsStart = false; // 
@@ -56,6 +62,8 @@ public class Shot_BossSphere_1 : MonoBehaviour
                     TimeCooldown = false; // 
 
                     currentTime = 0f; // 
+
+                    sound_Manager.Reproducte(3, gameObject, 0.1f);
 
                     QuanityPattrons = PrimaryPattrons; // 
                     Quanity.QuanityAttack1 += 1; // 
