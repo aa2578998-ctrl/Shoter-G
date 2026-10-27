@@ -19,8 +19,6 @@ public class Boom_Animated : MonoBehaviour
 
     void Start()
     {
-        Camera_Player = GameObject.FindAnyObjectByType<Follow_Camera_Player>();
-
         SpawnBoss = FindAnyObjectByType<Spawn_EnemyAndBoss_Follow_Player>();
 
         tMP_Scorekills_Boss = FindAnyObjectByType<TMP_Scorekills_Enemy>();
@@ -31,6 +29,7 @@ public class Boom_Animated : MonoBehaviour
     {
         if (Camera_Player != null)
         {
+            Camera_Player = GameObject.FindAnyObjectByType<Follow_Camera_Player>();
             if (Camera_Player.offset.y > 10.01f)
             {
                 Camera_Player.offset.y -= Speed_Y * Time.deltaTime;

@@ -155,7 +155,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 241}
+  m_AnchoredPosition: {x: 0, y: 279}
   m_SizeDelta: {x: 160, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &62158123
@@ -223,9 +223,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Slider_Movement_Spawn
   speed: 100
   slider_HP_B: {fileID: 0}
-  StartoffsetMove: {x: 0, y: 234, z: 0}
+  StartoffsetMove: {x: 0, y: 254, z: 0}
   SliderOne: {fileID: 62158122}
-  EndoffsetMove: {x: 0, y: 169, z: 0}
+  EndoffsetMove: {x: 0, y: 179, z: 0}
   SpawnMove: 0
   DeadMove: 0
 --- !u!1 &83896963
@@ -1249,7 +1249,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e9b02ec5030838447b08239fb2c56320, type: 2}
+  - {fileID: 2100000, guid: 97b11919c97ea864e93cd7b16e70ef91, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2889,6 +2889,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3293626527892283896, guid: 0831f722393037f4799bbcf91023e5f0, type: 3}
+      propertyPath: m_AdditionalLightsShadowResolutionTier
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3446644251053254205, guid: 0831f722393037f4799bbcf91023e5f0, type: 3}
       propertyPath: m_Name
       value: Player_Ball
@@ -2909,8 +2913,21 @@ PrefabInstance:
       propertyPath: tMP_HP_Player
       value: 
       objectReference: {fileID: 1794739242}
+    - target: {fileID: 8159634913806265283, guid: 0831f722393037f4799bbcf91023e5f0, type: 3}
+      propertyPath: m_RenderingLayerMask
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8159634913806265283, guid: 0831f722393037f4799bbcf91023e5f0, type: 3}
+      propertyPath: m_Shadows.m_Strength
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8159634913806265283, guid: 0831f722393037f4799bbcf91023e5f0, type: 3}
+      propertyPath: m_Shadows.m_NearPlane
+      value: 0.044999998
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 8391071845203688022, guid: 0831f722393037f4799bbcf91023e5f0, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 2782249652520420658, guid: 0831f722393037f4799bbcf91023e5f0, type: 3}
       insertIndex: -1

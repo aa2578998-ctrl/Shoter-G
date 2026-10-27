@@ -59,6 +59,7 @@ public class AI_Boss_FollowAanOthers : MonoBehaviour
 
     void Update()
     {
+        Camera_Player = GameObject.FindAnyObjectByType<Follow_Camera_Player>();
         if (Camera_Player != null)
         {
             // Отдаление камеры по y и z
